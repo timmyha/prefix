@@ -44,11 +44,15 @@ const PrefixText = styled.div`
   margin: auto;
   font-size: 1rem;
   font-family: ${(props) => props.theme.font.serif};
+  font-weight: 900;
+  font-style: italic;
 `;
 
 const Name = styled.div`
   color: ${(props) => props.theme.color.foreground};
   font-family: ${(props) => props.theme.font.sans};
+  font-weight: 300;
+  font-style: none;
   margin-top: 8px;
   margin-left: 20px;
   font-size: 1rem;

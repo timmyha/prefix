@@ -2,40 +2,18 @@ import styled, { ThemeProvider } from "styled-components";
 import { Input } from "./components/ui/Inputs";
 import { useSnapshot } from "valtio";
 import { store, functions } from "./store";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { keydownHandler } from "./utils/keydownHandler";
 import { validateUrl } from "./utils/validateUrl";
 import BookmarkGrid from "./components/BookmarkGrid";
 import Bookmark from "./components/Bookmark";
+import Time from './components/Time'
 
 function App() {
   const snap = useSnapshot(store);
   const { handleInput } = functions;
-
-  const [time, setTime] = useState<any>();
-
-  useEffect(() => {
-    setInterval(() => {
-      const date = new Date();
-      setTime(
-        date.toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-        })
-      );
-    }, 1000);
-  }, []);
-
-  const date = new Date();
-  let timeDisplay = date.toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-  });
-
-  const bookmarks = snap.data.map((bookmark) => {
-    const match = bookmark.name.includes(snap.input);
+  
+  const bookmarks = store.data.sort((a, b) => a.id - b.id).map((bookmark) => {
     return (
       <Bookmark
         key={bookmark.id}
@@ -99,7 +77,7 @@ function App() {
           <InputContainer>
             <Input
               autoFocus
-              height="5rem"
+              height="6rem"
               width="100%"
               onChange={(e) => handleInput(e)}
             />
@@ -113,7 +91,7 @@ function App() {
     return (
       <ThemeProvider theme={snap.theme}>
         <Container>
-          <Clock onClick={() => (store.clock = false)}>{timeDisplay}</Clock>
+          <Time />
         </Container>
       </ThemeProvider>
     );
@@ -135,25 +113,20 @@ const Container = styled.div`
   width: 100vw;
   height: 100vh;
   background: ${(props) => props.theme.color.background};
+  background-image:
   transition: .1s;
 `;
 
-const Clock = styled.div`
-  display: flex;
-  justify-content: center;
-  color: ${(props) => props.theme.color.foreground};
-  padding-top: 300px;
-  font-family: ${(props) => props.theme.font.serif};
-  cursor: pointer;
-  font-size: 6rem;
-`;
 
 const InputContainer = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 300px;
   font-family: ${(props) => props.theme.font.serif};
+  font-style: italic;
+  font-weight: 900; 
   font-size: 4rem;
+  line-height: 3rem;
 `;
 
 const Subtext = styled.div`
