@@ -37,10 +37,12 @@ function App() {
       if (e.key === "Enter") {
         stagedShortcut[0]
           ? (window.location.href = stagedShortcut[0].url)
+          : snap.input[0] === "!"
+          ? window.location.href = `https://duckduckgo.com/?q=${snap.input}`
           : validateUrl(snap.input)
           ? (window.location.href = `https://${snap.input}`)
           : !validateUrl(snap.input) &&
-            (window.location.href = `https://www.google.com/search?&q=${snap.input}`);
+            (window.location.href = `https://www.google.com/search?&q=${snap.input}`)
       }
     } catch (error) {
       console.warn("malformed URI, using search engine.");
