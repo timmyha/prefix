@@ -7,4 +7,4 @@ import tldEnum from 'tld-enum'
     gzip: boolean;
   }
 
-  export default tldEnum 
+  export default tldEnum } 
