@@ -4,10 +4,14 @@ export const Input = styled.input<{ height: string; width: string }>`
   height: ${({ height }) => height};
   width: ${({ width }) => width};
   background-color: transparent;
-  border: 1px solid #c0c0c0;
-  border-radius: 5px;
-  color: #c0c0c0;
+  border: none;
+  text-align: center;
+  color: #ffffff;
+  caret-color: transparent;
+  text-shadow: #333 1px 0 1px;
   &:focus {
     outline: none;
   }
 `;
+  // caret-color: transparent;
+  // mix-blend-mode: difference;

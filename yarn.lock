@@ -832,6 +832,11 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
+tld-enum@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/tld-enum/-/tld-enum-2.0.6.tgz#0dd8192946d7198f3307e19c911cb25c9ced697b"
+  integrity sha512-jbbWi5zFzhN516ezGwQi8G0MvXx0SQU2tht9Nm/wWZ2YdZoSl+ZsbSpfDIgoAQ8PecypvqOphhbv14VbW40ozA==
+
 to-fast-properties@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-2.0.0.tgz#dc5e698cbd079265bc73e0377681a4e4e83f616e"
