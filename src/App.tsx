@@ -121,6 +121,10 @@ function App() {
       </Container>
     </ThemeProvider>
   );
+
+  return (
+  <></>
+  )
 }
 
 const Container = styled.div`
