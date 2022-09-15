@@ -3,12 +3,13 @@ import styled from "styled-components";
 interface Props {
   prefix: string;
   name: string;
+  color: string;
 }
 
-const Bookmark = ({ prefix, name }: Props) => {
+const Bookmark = ({ prefix, name, color }: Props) => {
   return (
-    <Container>
-      <Prefix>
+    <Container color={color}>
+      <Prefix className="prefix">
         <PrefixText>{prefix}</PrefixText>
       </Prefix>
       <Name className="name">{name}</Name>
@@ -16,14 +17,17 @@ const Bookmark = ({ prefix, name }: Props) => {
   );
 };
 
-const Container = styled.div`
+const Container = styled.div<{ color: string }>`
   display: flex;
   cursor: pointer;
-  & .name{
-    opacity: .6;
+  & .name {
+    opacity: 0.6;
   }
   &:hover .name {
     opacity: 1;
+  }
+  &:hover .prefix {
+    background: ${(props) => props.color};
   }
 `;
 
@@ -39,12 +43,12 @@ const Prefix = styled.div`
 const PrefixText = styled.div`
   margin: auto;
   font-size: 1rem;
-  font-family: ${props => props.theme.font.serif}
+  font-family: ${(props) => props.theme.font.serif};
 `;
 
 const Name = styled.div`
   color: ${(props) => props.theme.color.foreground};
-  font-family: ${props => props.theme.font.sans};
+  font-family: ${(props) => props.theme.font.sans};
   margin-top: 8px;
   margin-left: 20px;
   font-size: 1rem;

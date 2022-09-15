@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { keydownHandler } from "./utils/keydownHandler";
 import { validateUrl } from "./utils/validateUrl";
 import BookmarkGrid from "./components/BookmarkGrid";
-import Bookmark from './components/Bookmark'
+import Bookmark from "./components/Bookmark";
 
 function App() {
   const snap = useSnapshot(store);
@@ -21,7 +21,7 @@ function App() {
         date.toLocaleTimeString([], {
           hour: "2-digit",
           minute: "2-digit",
-          second: "2-digit"
+          second: "2-digit",
         })
       );
     }, 1000);
@@ -31,13 +31,18 @@ function App() {
   let timeDisplay = date.toLocaleTimeString([], {
     hour: "2-digit",
     minute: "2-digit",
-    second: "2-digit"
+    second: "2-digit",
   });
 
   const bookmarks = snap.data.map((bookmark) => {
     const match = bookmark.name.includes(snap.input);
     return (
-    <Bookmark key={bookmark.id} name={bookmark.name} prefix={bookmark.prefix} />
+      <Bookmark
+        key={bookmark.id}
+        color={bookmark.color}
+        name={bookmark.name}
+        prefix={bookmark.prefix}
+      />
     );
   });
 
@@ -108,23 +113,21 @@ function App() {
     return (
       <ThemeProvider theme={snap.theme}>
         <Container>
-          <Clock onClick={() => store.clock = false}>{timeDisplay}</Clock>
+          <Clock onClick={() => (store.clock = false)}>{timeDisplay}</Clock>
         </Container>
       </ThemeProvider>
     );
 
   if (!snap.clock)
-  return (
-    <ThemeProvider theme={snap.theme}>
-      <Container>
-        <BookmarkGrid>{bookmarks}</BookmarkGrid>
-      </Container>
-    </ThemeProvider>
-  );
+    return (
+      <ThemeProvider theme={snap.theme}>
+        <Container>
+          <BookmarkGrid>{bookmarks}</BookmarkGrid>
+        </Container>
+      </ThemeProvider>
+    );
 
-  return (
-  <></>
-  )
+  return <></>;
 }
 
 const Container = styled.div`
