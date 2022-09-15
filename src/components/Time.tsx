@@ -20,7 +20,9 @@ const Time = () => {
 
   const date = new Date();
 
-  let timeDisplay = date.toLocaleTimeString([], {
+  const gb = false
+
+  let timeDisplay = date.toLocaleTimeString(gb ? 'en-GB' : 'en-US', {
     hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",
@@ -34,7 +36,7 @@ const Clock = styled.div`
   justify-content: center;
   color: ${(props) => props.theme.color.foreground};
   padding-top: 300px;
-  font-family: ${(props) => props.theme.font.serif};
+  font-family: ${(props) => props.theme.font.mono};
   cursor: pointer;
   font-size: 6rem;
 `;

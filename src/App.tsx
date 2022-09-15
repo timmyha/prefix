@@ -7,22 +7,24 @@ import { keydownHandler } from "./utils/keydownHandler";
 import { validateUrl } from "./utils/validateUrl";
 import BookmarkGrid from "./components/BookmarkGrid";
 import Bookmark from "./components/Bookmark";
-import Time from './components/Time'
+import Time from "./components/Time";
 
 function App() {
   const snap = useSnapshot(store);
   const { handleInput } = functions;
-  
-  const bookmarks = store.data.sort((a, b) => a.id - b.id).map((bookmark) => {
-    return (
-      <Bookmark
-        key={bookmark.id}
-        color={bookmark.color}
-        name={bookmark.name}
-        prefix={bookmark.prefix}
-      />
-    );
-  });
+
+  const bookmarks = store.data
+    .sort((a, b) => a.id - b.id)
+    .map((bookmark) => {
+      return (
+        <Bookmark
+          key={bookmark.id}
+          color={bookmark.color}
+          name={bookmark.name}
+          prefix={bookmark.prefix}
+        />
+      );
+    });
 
   const stagedShortcut = snap.data.filter((bookmark) => {
     const prefix = bookmark.prefix;
@@ -117,14 +119,13 @@ const Container = styled.div`
   transition: .1s;
 `;
 
-
 const InputContainer = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 300px;
   font-family: ${(props) => props.theme.font.serif};
   font-style: italic;
-  font-weight: 900; 
+  font-weight: 900;
   font-size: 4rem;
   line-height: 3rem;
 `;

@@ -7,12 +7,13 @@ export const defaultTheme = {
   font: {
     serif: "IBM Plex Serif",
     sans: "IBM Plex Sans",
+    mono: "IBM Plex Mono",
   },
 };
 
 export interface Theme {
-  color: Color,
-  font: Font
+  color: Color;
+  font: Font;
 }
 
 interface Color {
@@ -24,4 +25,5 @@ interface Color {
 interface Font {
   serif: string;
   sans: string;
+  mono: string;
 }
