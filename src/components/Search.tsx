@@ -14,8 +14,10 @@ const Search = () => {
 
   // listens for "enter", submits query
   useEffect(() => {
-    window.addEventListener("keydown", submitQuery, false);
-    return () => window.removeEventListener("keydown", submitQuery, false);
+    if (snap.sidebarToggle === false) {
+      window.addEventListener("keydown", submitQuery, false);
+      return () => window.removeEventListener("keydown", submitQuery, false);
+    }
   }, [snap.input]);
 
   const submitQuery = (e: KeyboardEvent) => {

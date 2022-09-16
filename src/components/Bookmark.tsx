@@ -4,11 +4,12 @@ interface Props {
   prefix: string;
   name: string;
   color: string;
+  link: string;
 }
 
-const Bookmark = ({ prefix, name, color }: Props) => {
+const Bookmark = ({ prefix, name, color, link }: Props) => {
   return (
-    <Container color={color}>
+    <Container color={color} onClick={() => (location.href = link)}>
       <Prefix className="prefix">
         <PrefixText>{prefix}</PrefixText>
       </Prefix>

@@ -43,7 +43,7 @@ console.log(settings)
           )}
         </Button>
       </SaveSettings>
-      <Textarea onChange={changeJSONdata} value={settings || ""} />
+      <Textarea autoFocus onChange={changeJSONdata} value={settings || ""} />
     </Container>
   );
 };

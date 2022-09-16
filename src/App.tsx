@@ -8,38 +8,42 @@ import Time from "./components/Time";
 import Search from "./components/Search";
 import { data } from "./data";
 import { defaultTheme } from "./themes.styles";
-import Settings from './components/Settings'
+import Settings from "./components/Settings";
 
 function App() {
   const snap = useSnapshot(store);
 
   // listens for a-z keypresses to conditionally render search input
   useEffect(() => {
-    window.addEventListener("keydown", keydownHandler, false);
-    return () => window.removeEventListener("keydown", keydownHandler, false);
-  }, []);
+    if (snap.sidebarToggle === false) {
+      window.addEventListener("keydown", keydownHandler, false);
+      return () => window.removeEventListener("keydown", keydownHandler, false);
+    }
+  }, [snap.sidebarToggle]);
 
   // checks for local storage data, populates with default theme if none exists
   useEffect(() => {
     const defaultConfig = {
       user: {
-        "search": "https://www.google.com/search?&q=",
-        "newUser": true,
-        "hour24": false,
+        search: "https://www.google.com/search?&q=",
+        newUser: true,
+        hour24: false,
       },
       theme: defaultTheme,
       data: data,
     };
     if (!window.localStorage.getItem("prefixData")) {
       window.localStorage.setItem("prefixData", JSON.stringify(defaultConfig));
-      location.reload()
+      location.reload();
       store.prefixData = JSON.parse("prefixData");
     }
   }, []);
 
   return (
-    <ThemeProvider theme={snap.prefixData ? snap.prefixData.theme : defaultTheme}>
-     <Settings /> 
+    <ThemeProvider
+      theme={snap.prefixData ? snap.prefixData.theme : defaultTheme}
+    >
+      <Settings />
       {snap.input.length > 0 ? (
         <Search />
       ) : snap.input.length === 0 && snap.clock ? (
