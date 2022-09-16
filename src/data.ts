@@ -68,7 +68,7 @@ export const data: Data[] = [
   {
     id: 10,
     name: "mdn",
-    url: "https://www.developer.mozilla.com",
+    url: "https://www.developer.mozilla.org",
     prefix: "mdn",
     color:
       "linear-gradient(90deg, rgba(247,132,180,1) 11%, rgba(123,197,212,1) 87%)",
