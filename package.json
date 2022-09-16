@@ -11,6 +11,7 @@
   "dependencies": {
     "@types/react-icons": "^3.0.0",
     "@types/styled-components": "^5.1.26",
+    "framer-motion": "^7.3.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
