@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { store } from "../store";
+import { useSnapshot } from 'valtio'
 
 const Time = () => {
+  const snap = useSnapshot(store)
   const [_time, setTime] = useState<any>();
   // clock
   useEffect(() => {
@@ -22,7 +24,7 @@ const Time = () => {
 
   const gb = false
 
-  let timeDisplay = date.toLocaleTimeString(gb ? 'en-GB' : 'en-US', {
+  let timeDisplay = date.toLocaleTimeString(snap?.prefixData?.user.hour24  ? 'en-GB' : 'en-US', {
     hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",

@@ -24,7 +24,8 @@ function App() {
     const defaultConfig = {
       user: {
         "search": "https://www.google.com/search?&q=",
-        "newUser": true
+        "newUser": true,
+        "hour24": false,
       },
       theme: defaultTheme,
       data: data,
