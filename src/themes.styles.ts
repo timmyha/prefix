@@ -1,6 +1,7 @@
 export const defaultTheme = {
   color: {
     background: "#222222",
+    backgroundImg: "#222222",
     foreground: "#c0c0c0",
     accent: "pink",
   },

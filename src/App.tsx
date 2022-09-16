@@ -37,7 +37,7 @@ function App() {
   }, []);
 
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={snap.prefixData ? snap.prefixData.theme : defaultTheme}>
      <Settings /> 
       {snap.input.length > 0 ? (
         <Search />
@@ -60,8 +60,7 @@ const Container = styled.div`
   display; flex;
   width: 100vw;
   height: 100vh;
-  background: ${(props) => props.theme.color.background};
-  background-image:
+  background: ${(props) => props.theme.color.backgroundImg};
   transition: .1s;
 `;
 
