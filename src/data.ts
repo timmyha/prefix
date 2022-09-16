@@ -10,15 +10,16 @@ export const data: Data[] = [
     id: 2,
     name: "instagram",
     url: "https://www.instagram.com",
-    prefix: "i", color:
+    prefix: "i",
+    color:
       "#f09433 linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)",
   },
   {
     id: 3,
-    name: "netflix",
-    url: "https://www.netflix.com",
-    prefix: "n",
-    color: "#E50914",
+    name: "reddit",
+    url: "https://www.reddit.com",
+    prefix: "r",
+    color: "#FF4500",
   },
   {
     id: 4,
@@ -29,10 +30,11 @@ export const data: Data[] = [
   },
   {
     id: 5,
-    name: "hulu",
+    name: "letterboxd",
     url: "https://www.hulu.com",
-    prefix: "h",
-    color: "#1ce783",
+    prefix: "lb",
+    color:
+      "linear-gradient(90deg, rgba(180,114,45,1) 8%, rgba(47,198,63,1) 54%, rgba(0,212,255,1) 100%)",
   },
   {
     id: 6,
@@ -55,6 +57,35 @@ export const data: Data[] = [
     url: "https://www.twitch.tv",
     prefix: "tw",
     color: "#9146FF",
+  },
+  {
+    id: 9,
+    name: "stackoverflow",
+    url: "https://www.stackoverflow.com",
+    prefix: "so",
+    color: "#f48024",
+  },
+  {
+    id: 10,
+    name: "mdn",
+    url: "https://www.developer.mozilla.com",
+    prefix: "mdn",
+    color:
+      "linear-gradient(90deg, rgba(247,132,180,1) 11%, rgba(123,197,212,1) 87%)",
+  },
+  {
+    id: 11,
+    name: "github",
+    url: "https://www.github.com",
+    prefix: "gh",
+    color: "black",
+  },
+  {
+    id: 12,
+    name: "localhost",
+    url: "http://localhost:3000",
+    prefix: "lh",
+    color: "white",
   },
 ];
 
