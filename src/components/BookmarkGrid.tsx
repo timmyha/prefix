@@ -1,9 +1,24 @@
 import styled from 'styled-components'
+import { store } from '../store'
+import Bookmark from './Bookmark'
 
-const BookmarkGrid = ({children}: any) => {
+const BookmarkGrid = () => {
+  
+  const bookmarks = store.prefixData.data
+  .sort((a: any, b: any) => a.id - b.id)
+  .map((bookmark: any) => {
+      return (
+        <Bookmark
+          key={bookmark.id}
+          color={bookmark.color}
+          name={bookmark.name}
+          prefix={bookmark.prefix}
+        />
+      );
+    });
   return (
     <Container>
-     {children} 
+     {bookmarks} 
     </Container>
   )
 }

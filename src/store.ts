@@ -1,19 +1,21 @@
 import { proxy } from "valtio";
-import { data, Data } from "./data";
-import { defaultTheme, Theme } from "./themes.styles";
+import { Data } from "./data";
+import { Theme } from "./themes.styles";
 
 interface Store {
   input: string;
-  data: Data[];
-  theme: Theme;
+  prefixData: {user: any, data: Data[], theme: Theme};
   clock: boolean;
+  sidebarToggle: boolean
+  rawData: string | null
 }
 
 export const store = proxy<Store>({
   input: "",
-  data: data,
-  theme: defaultTheme,
-  clock: true
+  prefixData: JSON.parse(window.localStorage.getItem('prefixData') as string),
+  clock: true,
+  sidebarToggle: false,
+  rawData: window.localStorage.getItem('prefixData') 
 });
 
 export const functions = {

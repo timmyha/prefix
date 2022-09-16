@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;1,500&display=swap');
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -52,4 +52,39 @@ p, h1, h2, h3, h4, h5, h6 {
 */
 #root, #__next {
   isolation: isolate;
+}
+
+.sidebar {
+  position: fixed;
+  background: #1f1a1a;
+  width: 100vw;
+  height: 100vh;
+  transition: .5s;
+  z-index: 2;
+}
+
+.sidebar[data-genre="true"] {
+  width: 100vw;
+  height: 100vh;
+  background-color: #1f1a1a;
+  opacity: .98;
+  transition: .2s;
+}
+
+.child {
+  position: fixed;
+  width: 0px;
+  height: 100vh;
+  transition: .2s;
+  background-color: black;
+}
+
+.heart-button:hover {
+  color: palevioletred;
+  cursor: pointer;
+}
+
+.comment-button:hover {
+  color: silver;
+  cursor: pointer;
 }

@@ -10,8 +10,7 @@ export const data: Data[] = [
     id: 2,
     name: "instagram",
     url: "https://www.instagram.com",
-    prefix: "i",
-    color:
+    prefix: "i", color:
       "#f09433 linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)",
   },
   {
