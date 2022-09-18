@@ -1,49 +1,31 @@
 import styled from "styled-components";
-import { store } from "../store";
-import { useSnapshot } from "valtio";
+import RawJson from "./sidebar/RawJson";
 import { useState } from "react";
-import { AiFillCheckSquare } from "react-icons/ai";
-import { updateLocalStorage } from "../utils/updateLocalStorage";
+import GeneralSettings from './sidebar/GeneralSettings'
+import ThemeSettings from './sidebar/ThemeSettings'
 
 const SidebarContent = () => {
-  const snap = useSnapshot(store);
-  const [settings, setSettings] = useState<string | null>(
-    JSON.stringify(snap.prefixData, null, 2)
-  );
+  const settings = ["General", "Theme", "JSON", "Account"];
+  const [menu, setMenu] = useState<string>("General");
 
-  const checkJSON = (str: string | null) => {
-    try {
-      if (str) JSON.parse(str);
-    } catch (err) {
-      return err && false;
-    }
-    return true;
-  };
+  const links = settings.map((link) => {
+    return (
+      <MenuLink key={link} onClick={() => setMenu(link)}>
+        {link}
+      </MenuLink>
+    );
+  });
 
-  const changeJSONdata = (e: any) => {
-    setSettings(e.target.value);
-  };
-
-  const saveSettings = () => {
-    if (settings) {
-      store.prefixData = JSON.parse(settings);
-      store.sidebarToggle = !store.sidebarToggle;
-      window.localStorage.setItem('prefixData', JSON.stringify(JSON.parse(settings)))
-    }
-  };
-console.log(settings)
   return (
     <Container>
-      <SaveSettings>
-        <Button>
-          {checkJSON(settings) ? (
-            <AiFillCheckSquare onClick={saveSettings} size="30px" />
-          ) : (
-            <div style={{"color":"palevioletred"}}>JSON is not parseable</div>
-          )}
-        </Button>
-      </SaveSettings>
-      <Textarea autoFocus onChange={changeJSONdata} value={settings || ""} />
+      <Navigation>{links}</Navigation>
+      { menu === 'JSON' ?
+        <RawJson /> :
+        menu === 'General' ?
+        <GeneralSettings /> :
+        menu === 'Theme' ?
+        <ThemeSettings /> : ""
+      }
     </Container>
   );
 };
@@ -55,33 +37,26 @@ const Container = styled.div`
   width: 100%;
 `;
 
-const SaveSettings = styled.div`
-  position: absolute;
-  top: 10px;
-  right: 10px;
-`;
-
-const Button = styled.div`
-  color: lightgreen;
-  height: 30px;
-  padding: 5px;
-  cursor: pointer;
-  font-family: ${(props) => props.theme.font.sans};
-`;
-
-const Textarea = styled.textarea`
+const Navigation = styled.nav`
   display: flex;
+  justify-content: space-evenly;
+  width: 70%;
+  height: 0px;
+  color: ${(props) => props.theme.color.foreground};
+  font-family: ${(props) => props.theme.font.sans};
+  font-size: 0.9rem;
   margin: auto;
-  height: 80%;
-  width: 80%;
-  whitespace: pre-wrap;
-  background-color: transparent;
-  font-family: ${(props) => props.theme.font.mono};
-  font-size: 0.7rem;
-  color: #ebc934;
-  border: 0.5px dotted white;
-  &:focus {
-    outline: 0.5px dotted white;
+  margin-top: 55px !important;
+`;
+
+const MenuLink = styled.span`
+  display: flex;
+  width: 100px;
+  cursor: pointer;
+  z-index: 1;
+  &:hover {
+    text-decoration: underline 1px solid
+      ${(props) => props.theme.color.foreground};
   }
 `;
 

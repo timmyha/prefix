@@ -23,7 +23,6 @@ const Settings = () => {
     store.sidebarToggle = !store.sidebarToggle;
   };
 
-  console.log(snap.sidebarToggle);
   return (
     <div>
       {snap.prefixData?.user.newUser && (
@@ -101,5 +100,7 @@ const SettingsButton = styled.div`
   }
 `;
 
-const Sidebar = styled.div``;
+const Sidebar = styled.div`
+  position: absolute;
+`;
 export default Settings;
