@@ -8,8 +8,10 @@ import { updateLocalStorage } from "../../utils/updateLocalStorage";
 const ThemeSettings = () => {
   return (
     <Container>
-      <Setting>hi</Setting>
-      <Setting>hello</Setting>
+      <Setting>
+        Please see the JSON tab to change settings at this time.
+      </Setting>
+      <Setting></Setting>
       <Button onClick={() => console.log("hi")} width="100px">
         save
       </Button>
