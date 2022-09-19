@@ -1,0 +1,21 @@
+{
+    "extends": ["eslint-config-react-typescript"],
+    "env": {
+        "node": true
+    },
+    "parserOptions": {
+        "project": "tsconfig.json",
+        "sourceType": "module"
+    },
+    "rules": {
+        "no-use-before-define": [
+            "error",
+            {
+                "functions": false,
+                "classes": false,
+                "variables": false,
+                "allowNamedExports": false
+            }
+        ]
+    }
+}
