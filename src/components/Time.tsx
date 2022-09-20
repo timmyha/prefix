@@ -42,6 +42,8 @@ const Clock = styled.div`
     font-family: ${(props) => props.theme.font.mono};
     cursor: pointer;
     font-size: 6rem;
+    @media (max-height: 600px) {
+        padding-top: 200px;
+    }
 `
-
 export default Time

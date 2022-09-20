@@ -28,7 +28,7 @@ const Container = styled.div<{ color: string }>`
         opacity: 1;
     }
     &:hover .prefix {
-        background: ${(props) => props.color};
+        background: ${({ color }) => color};
     }
 `
 
@@ -36,22 +36,22 @@ const Prefix = styled.div`
     display: flex;
     width: 40px;
     height: 40px;
-    background: ${(props) => props.theme.color.foreground};
-    color: ${(props) => props.theme.color.background};
+    background: ${({ theme }) => theme.color.foreground};
+    color: ${({ theme }) => theme.color.background};
     border-radius: 3px;
 `
 
 const PrefixText = styled.div`
     margin: auto;
     font-size: 1rem;
-    font-family: ${(props) => props.theme.font.serif};
+    font-family: ${({ theme }) => theme.font.serif};
     font-weight: 900;
     font-style: italic;
 `
 
 const Name = styled.div`
-    color: ${(props) => props.theme.color.foreground};
-    font-family: ${(props) => props.theme.font.sans};
+    color: ${({ theme }) => theme.color.foreground};
+    font-family: ${({ theme }) => theme.font.sans};
     font-weight: 300;
     font-style: none;
     margin-top: 8px;

@@ -36,6 +36,9 @@ const Container = styled.div`
         grid-template-columns: repeat(1, auto);
         padding-top: 100px !important;
     }
+    @media (max-height: 600px) {
+        padding-top: 200px !important;
+    }
 `
 
 export default BookmarkGrid
