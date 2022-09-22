@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { GiSettingsKnobs } from 'react-icons/gi'
 import { FaLongArrowAltRight } from 'react-icons/fa'
+import { BsClock } from 'react-icons/bs'
 import { store } from '../store'
 import { useSnapshot } from 'valtio'
 import { updateLocalStorage } from '../utils/updateLocalStorage'
@@ -23,6 +24,10 @@ const Settings = () => {
         store.sidebarToggle = !store.sidebarToggle
     }
 
+    const toggleClock = () => {
+        store.clock = true
+    }
+
     return (
         <div>
             {snap.prefixData?.user.newUser && (
@@ -41,6 +46,11 @@ const Settings = () => {
                     <GiSettingsKnobs size="20px" />
                 )}
             </SettingsButton>
+            <ClockButton onClick={toggleClock}>
+                {snap.sidebarToggle === false && snap.clock === false && (
+                    <BsClock />
+                )}
+            </ClockButton>
             <Sidebar>
                 {snap.sidebarToggle ? (
                     <motion.div
@@ -93,7 +103,22 @@ const SettingsButton = styled.div`
     right: 20px;
     color: ${(props) => props.theme.color.foreground};
     transition: 0.5s;
-    opacity: 0.5;
+    opacity: 0.3;
+    z-index: 99999;
+    &:hover {
+        opacity: 1;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+`
+
+const ClockButton = styled.div`
+    position: absolute;
+    top: 22px;
+    right: 55px;
+    color: ${(props) => props.theme.color.foreground};
+    transition: 0.5s;
+    opacity: 0.3;
     z-index: 99999;
     &:hover {
         opacity: 1;
