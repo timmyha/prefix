@@ -53,6 +53,7 @@ const Name = styled.div`
     color: ${({ theme }) => theme.color.foreground};
     font-family: ${({ theme }) => theme.font.sans};
     font-weight: 300;
+    text-shadow: #333 1px 0 1px;
     font-style: none;
     margin-top: 8px;
     margin-left: 20px;

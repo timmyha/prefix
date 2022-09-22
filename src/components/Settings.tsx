@@ -103,7 +103,7 @@ const SettingsButton = styled.div`
     right: 20px;
     color: ${(props) => props.theme.color.foreground};
     transition: 0.5s;
-    opacity: 0.3;
+    opacity: 0.5;
     z-index: 99999;
     &:hover {
         opacity: 1;
@@ -118,7 +118,7 @@ const ClockButton = styled.div`
     right: 55px;
     color: ${(props) => props.theme.color.foreground};
     transition: 0.5s;
-    opacity: 0.3;
+    opacity: 0.5;
     z-index: 99999;
     &:hover {
         opacity: 1;
