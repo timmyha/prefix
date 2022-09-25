@@ -8,8 +8,16 @@ interface Props {
 }
 
 const Bookmark = ({ prefix, name, color, link }: Props) => {
+    const handleLink = () => {
+        console.log(link)
+        if (link === 'http://localhost:3000') {
+            location.href = `http://localhost:${window.prompt('port?')}`
+        } else {
+            location.href = link
+        }
+    }
     return (
-        <Container color={color} onClick={() => (location.href = link)}>
+        <Container color={color} onClick={handleLink}>
             <Prefix className="prefix">
                 <PrefixText>{prefix}</PrefixText>
             </Prefix>
