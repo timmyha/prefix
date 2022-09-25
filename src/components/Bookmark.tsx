@@ -10,7 +10,7 @@ interface Props {
 const Bookmark = ({ prefix, name, color, link }: Props) => {
     const handleLink = () => {
         console.log(link)
-        if (link === 'http://localhost:3000') {
+        if (link === 'http://localhost:3000' || link === 'localhost') {
             location.href = `http://localhost:${window.prompt('port?')}`
         } else {
             location.href = link
