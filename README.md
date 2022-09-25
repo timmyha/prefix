@@ -24,6 +24,7 @@ Your settings are stored in Local Storage, to move settings to another browser, 
 -   your theme's `backgroundImg` and a bookmark's `color` will accept anything the CSS `background` property will accept. Consult the [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/background) for more detailed information.
 -   at the moment `accent` is only tied to the colors in the settings.
 -   If you have Google selected as your search engine, you can still utilize DuckDuckGo's [bang]() functionality by prefacing your search query with a bang. See DuckDuckGo's page for more information.
+-   if you set a bookmark's url to "localhost" ot "localhost:3000" (for legacy purposes) it will prompt for a port number.
 
 ##### short-term roadmap
 
