@@ -2,6 +2,8 @@
 
 #### [live demo](https://prefix.vercel.app)
 
+<img src='./public/preview.gif'>
+
 ##### instructions
 
 Click the settings icon to manage your bookmarks and various options. Begin typing
