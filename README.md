@@ -1,6 +1,6 @@
 # prefix
 
-#### [live demo](https://prefix.vercel.app)
+#### [live demo](https://prefix.timmyha.co)
 
 <img src='./public/preview.gif'>
 
