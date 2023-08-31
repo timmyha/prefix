@@ -10,8 +10,10 @@ export const handleQuery = (
         ? (window.location.href = filter[0].url)
         : snap.input[0] === "!"
         ? (window.location.href = `https://duckduckgo.com/?q=${snap.input}`)
-        : validateUrl(snap.input)
+        : validateUrl(snap.input) && snap.input.includes('http')
         ? (window.location.href = `${snap.input}`)
+        : validateUrl(snap.input)
+        ? (window.location.href = `https://${snap.input}`)
         : !validateUrl(snap.input) &&
           (window.location.href = `${snap.prefixData.user.search}${snap.input}`);
     }
