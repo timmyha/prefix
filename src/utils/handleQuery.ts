@@ -11,7 +11,7 @@ export const handleQuery = (
         : snap.input[0] === "!"
         ? (window.location.href = `https://duckduckgo.com/?q=${snap.input}`)
         : validateUrl(snap.input)
-        ? (window.location.href = `https://${snap.input}`)
+        ? (window.location.href = `${snap.input}`)
         : !validateUrl(snap.input) &&
           (window.location.href = `${snap.prefixData.user.search}${snap.input}`);
     }
